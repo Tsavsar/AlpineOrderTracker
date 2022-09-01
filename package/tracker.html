@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body
+    x-data="{ packagenum: 0,
+    clear(){this.trackingnum=''
+    this.itemname=''
+    this.packagenum=''
+    } ,trackingnum: '', itemname: '',}"
+  >
+    <div class="package">
+      <input
+        x-model="trackingnum"
+        type="number"
+        maxlength="11"
+        placeholder="Tracking Number"
+      />
+      <input x-model="itemname" type="text" maxlength="11" placeholder="Item" />
+
+      <div class="row">
+        <button x-on:click="packagenum=1" class="btn">Check</button>
+        <button x-on:click="clear()" class="btn">clear</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head">
+        <h1 class="title">Package Status</h1>
+      </div>
+
+      <!-- <template x-if="packagenum >= 1"> -->
+      <div class="track">
+        <div class="status">
+          <div class="done">
+            <div
+              class="done-icn"
+              :style="packagenum > 1 ? 'background:#4c3cef;' : packagenum == 1 ? 'background:rgb(0, 190, 28);' : '  background-color: #dedede' "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+              >
+                <path
+                  d="M22.319,4.431,8.5,18.249a1,1,0,0,1-1.417,0L1.739,12.9a1,1,0,0,0-1.417,0h0a1,1,0,0,0,0,1.417l5.346,5.345a3.008,3.008,0,0,0,4.25,0L23.736,5.847a1,1,0,0,0,0-1.416h0A1,1,0,0,0,22.319,4.431Z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="done-txt"
+              :style="packagenum > 1 ? 'background:#4c3cef;' : packagenum == 1 ? 'background:rgb(0, 190, 28);' : '  background-color: #dedede' "
+            >
+              Order Placed
+            </h2>
+          </div>
+          <div
+            class="date"
+            :style="packagenum > 1 ? 'border-color:#4c3cef;' : packagenum == 1 ? 'border-colorrgb(0, 190, 28);' : '  border-color: #dedede' "
+          >
+            <p>29-09-2022</p>
+          </div>
+        </div>
+      </div>
+      <!-- </template> -->
+
+      <div class="track">
+        <div class="status">
+          <div class="done">
+            <div
+              class="done-icn"
+              :style="packagenum > 2 ? 'background:#4c3cef;' : packagenum == 2 ? 'background:rgb(0, 190, 28);' : '  background-color: #dedede' "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+              >
+                <path
+                  d="M22.319,4.431,8.5,18.249a1,1,0,0,1-1.417,0L1.739,12.9a1,1,0,0,0-1.417,0h0a1,1,0,0,0,0,1.417l5.346,5.345a3.008,3.008,0,0,0,4.25,0L23.736,5.847a1,1,0,0,0,0-1.416h0A1,1,0,0,0,22.319,4.431Z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="done-txt"
+              :style="packagenum > 2 ? 'background:#4c3cef;' : packagenum == 2 ? 'background:rgb(0, 190, 28);' : '  background-color: #dedede' "
+            >
+              Order in progress
+            </h2>
+          </div>
+          <div
+            class="date"
+            :style="packagenum > 2 ? 'border-color:#4c3cef;' :
+            packagenum == 2 ? 'border-colorrgb(0, 190, 28);' :
+            'border-color: #dedede' "
+          >
+            <p>29-09-2022</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="track">
+        <div class="status">
+          <div class="done">
+            <div
+              class="done-icn"
+              :style="packagenum > 3 ? 'background:#4c3cef;' :
+              packagenum == 3 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+              >
+                <path
+                  d="M22.319,4.431,8.5,18.249a1,1,0,0,1-1.417,0L1.739,12.9a1,1,0,0,0-1.417,0h0a1,1,0,0,0,0,1.417l5.346,5.345a3.008,3.008,0,0,0,4.25,0L23.736,5.847a1,1,0,0,0,0-1.416h0A1,1,0,0,0,22.319,4.431Z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="done-txt"
+              :style="packagenum > 3 ? 'background:#4c3cef;' :
+              packagenum == 3 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              Shipped
+            </h2>
+          </div>
+          <div
+            class="date"
+            :style="packagenum > 3 ? 'border-color:#4c3cef;' :
+            packagenum == 3 ? 'border-colorrgb(0, 190, 28);' :
+            'border-color: #dedede' "
+          >
+            <p>02-10-2022</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="track">
+        <div class="status">
+          <div class="done">
+            <div
+              class="done-icn"
+              :style="packagenum > 4 ? 'background:#4c3cef;' :
+              packagenum == 4 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Outline"
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+              >
+                <path
+                  d="M22.319,4.431,8.5,18.249a1,1,0,0,1-1.417,0L1.739,12.9a1,1,0,0,0-1.417,0h0a1,1,0,0,0,0,1.417l5.346,5.345a3.008,3.008,0,0,0,4.25,0L23.736,5.847a1,1,0,0,0,0-1.416h0A1,1,0,0,0,22.319,4.431Z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="done-txt"
+              :style="packagenum > 4 ? 'background:#4c3cef;' :
+              packagenum == 4 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              Out for delivery
+            </h2>
+          </div>
+          <div
+            class="date-active"
+            :style="packagenum > 4 ? 'border-color:#4c3cef;' :
+            packagenum == 4 ? 'border-colorrgb(0, 190, 28);' :
+            'border-color: #dedede' "
+          >
+            <p>10-10-2022</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="track">
+        <div class="status-active">
+          <div class="done-active">
+            <div
+              class="done-icn-active"
+              :style="packagenum > 5 ? 'background:#4c3cef;' :
+              packagenum == 5 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Layer_1"
+                data-name="Layer 1"
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+              >
+                <path
+                  d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,16C6.276,16,2,13.889,2,12S6.276,8,12,8s10,2.111,10,4S17.724,16,12,16ZM12,2a10.013,10.013,0,0,1,9.189,6.062A18.635,18.635,0,0,0,12,6,18.635,18.635,0,0,0,2.811,8.062,10.013,10.013,0,0,1,12,2Zm0,20a10.013,10.013,0,0,1-9.189-6.062A18.635,18.635,0,0,0,12,18a18.635,18.635,0,0,0,9.189-2.062A10.013,10.013,0,0,1,12,22Z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="done-txt-active"
+              :style="packagenum > 5 ? 'background:#4c3cef;' :
+              packagenum == 5 ? 'background:rgb(0, 190, 28);' :
+               ' background-color: #dedede' "
+            >
+              Delivered
+            </h2>
+          </div>
+          <div class="act">
+            <p>11-10-2022</p>
+          </div>
+        </div>
+      </div>
+      <template x-if="packagenum >= 5">
+        <div class="foot">
+          <p2 class="update">This order is complete</p2>
+        </div>
+      </template>
+    </div>
+    <div class="control">
+      <p2 class="update">Update tracking info</p2>
+      <button class="btn" x-on:click="packagenum++">Update</button>
+      <!-- <span x-text="packagenum"></span> -->
+    </div>
+  </body>
+</html>
